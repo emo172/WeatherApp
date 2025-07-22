@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_home">
+
+    <!-- 搜索区域 - 使用ConstraintLayout布局 -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/searchLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!-- 搜索输入框 -->
+        <EditText
+            android:id="@+id/cityInput"
+            style="@style/WeatherEditText"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:hint="@string/hint_enter_city"
+            android:imeOptions="actionSearch"
+            android:inputType="textCapWords"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/searchButton"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- 查询按钮 -->
+        <Button
+            android:id="@+id/searchButton"
+            style="@style/WeatherActionButton"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginStart="8dp"
+            android:text="@string/btn_search"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- 加载指示器 -->
+    <ProgressBar
+        android:id="@+id/loadingIndicator"
+        style="@style/WeatherProgressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/searchLayout" />
+
+    <!-- 天气信息卡片 -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/weatherCard"
+        style="@style/WeatherCard"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/searchLayout">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="24dp">
+
+            <!-- 城市名称 -->
+            <TextView
+                android:id="@+id/cityName"
+                style="@style/WeatherCityName"
+                tools:text="北京市" />
+
+            <!-- 温度 -->
+            <TextView
+                android:id="@+id/temperature"
+                style="@style/WeatherTemperature"
+                tools:text="26°C" />
+
+            <!-- 天气状态和图标 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/weatherCondition"
+                    style="@style/WeatherCondition"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    tools:text="晴" />
+
+                <ImageView
+                    android:id="@+id/weatherIcon"
+                    style="@style/WeatherIcon"
+                    tools:src="@drawable/ic_day_sunny" />
+            </LinearLayout>
+
+            <!-- 详细信息 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:orientation="vertical">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@color/white_20" />
+
+                <!-- 风速信息 -->
+                <LinearLayout
+                    style="@style/WeatherDetailRow"
+                    android:layout_marginBottom="8dp">
+
+                    <ImageView
+                        style="@style/WeatherDetailIcon"
+                        android:src="@drawable/ic_wind" />
+
+                    <TextView
+                        android:id="@+id/windInfo"
+                        style="@style/WeatherDetailText"
+                        tools:text="东南风 3级 (风速: 15km/h)" />
+                </LinearLayout>
+
+                <!-- 湿度信息 -->
+                <LinearLayout
+                    style="@style/WeatherDetailRow"
+                    android:layout_marginBottom="8dp">
+
+                    <ImageView
+                        style="@style/WeatherDetailIcon"
+                        android:src="@drawable/ic_humidity" />
+
+                    <TextView
+                        android:id="@+id/humidityInfo"
+                        style="@style/WeatherDetailText"
+                        tools:text="湿度: 45%" />
+                </LinearLayout>
+
+                <!-- 能见度信息 -->
+                <LinearLayout
+                    style="@style/WeatherDetailRow">
+
+                    <ImageView
+                        style="@style/WeatherDetailIcon"
+                        android:src="@drawable/ic_visibility" />
+
+                    <TextView
+                        android:id="@+id/visibilityInfo"
+                        style="@style/WeatherDetailText"
+                        tools:text="能见度: 10公里" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- 错误信息 -->
+    <TextView
+        android:id="@+id/errorMessage"
+        style="@style/WeatherErrorMessage"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/searchLayout" />
+</androidx.constraintlayout.widget.ConstraintLayout>

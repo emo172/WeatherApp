@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- 显示当前默认城市 -->
+    <TextView
+        android:id="@+id/tv_default_city"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/default_city_text"
+        android:textSize="18sp"
+        android:layout_gravity="center_horizontal"/>
+
+    <!-- 添加默认城市设置按钮 -->
+    <Button
+        android:id="@+id/btn_set_default_city"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_set_default_city"
+        android:textAllCaps="false"
+        android:backgroundTint="@color/purple_500"
+        android:textColor="@color/white"
+        android:paddingVertical="12dp"/>
+</LinearLayout>

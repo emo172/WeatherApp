@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+  <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="@string/title_set_default_city"
+      android:textSize="24sp"
+      android:layout_gravity="center_horizontal"
+      android:layout_marginBottom="24dp"/>
+
+  <!-- 优化输入框宽度：添加最大宽度限制并居中 -->
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:gravity="center_horizontal"
+      android:paddingHorizontal="32dp"> <!-- 增加内边距缩小可视宽度 -->
+
+    <EditText
+        android:id="@+id/et_default_city"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="48dp"
+        android:paddingVertical="8dp"
+        android:paddingHorizontal="16dp"
+        android:hint="@string/hint_input_city"
+        android:inputType="text"
+        android:maxLines="1"
+        android:autofillHints="cityName"
+        android:importantForAutofill="yes"
+        android:imeOptions="actionDone"
+        android:singleLine="true"
+        android:maxWidth="400dp" /> <!-- 限制最大宽度为400dp -->
+  </LinearLayout>
+
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="horizontal"
+      android:layout_marginTop="16dp"
+      android:gravity="center">
+
+    <Button
+        android:id="@+id/btn_save_default_city"
+        style="?attr/borderlessButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:minWidth="100dp"
+        android:minHeight="48dp"
+        android:text="@string/btn_save"
+        android:backgroundTint="@color/purple_500"
+        android:textColor="@color/white"
+        android:paddingHorizontal="16dp"
+        android:gravity="center"/>
+
+    <Button
+        android:id="@+id/btn_clear_default_city"
+        style="?attr/borderlessButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:minWidth="100dp"
+        android:minHeight="48dp"
+        android:text="@string/btn_clear"
+        android:backgroundTint="@color/black"
+        android:textColor="@color/white"
+        android:paddingHorizontal="16dp"
+        android:gravity="center"/>
+  </LinearLayout>
+</LinearLayout>

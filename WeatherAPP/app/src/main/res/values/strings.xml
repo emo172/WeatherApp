@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 应用基础字符串 -->
+    <string name="app_name">天气预报</string>
+
+    <!-- 搜索功能相关 -->
+    <string name="hint_enter_city">请输入城市名称</string>
+    <string name="btn_search">搜索</string>
+    <string name="warning_empty_city">请输入城市名称</string>
+
+    <!-- 网络错误处理 -->
+    <string name="error_api_failed">获取天气数据失败：%s</string>
+
+    <!-- 导航菜单 -->
+    <string name="title_menu_home">首页</string>
+    <string name="title_menu_history">历史记录</string>
+    <string name="title_menu_profile">个人</string>
+
+    <!-- 历史记录相关 -->
+    <string name="clear_history">清除历史记录</string>
+    <string name="no_history">暂无查询历史</string>
+    <string name="delete">删除</string>
+
+    <string name="title_set_default_city">设置默认城市</string>
+    <string name="hint_input_city">输入默认城市名称</string>
+    <string name="btn_save">保存</string>
+    <string name="btn_clear">清除</string>
+
+    <string name="default_city_text">当前默认城市：未设置</string>
+    <string name="btn_set_default_city">设置默认城市</string>
+</resources>
